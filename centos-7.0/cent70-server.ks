@@ -10,7 +10,7 @@ url --url http://mirror.rackspace.com/CentOS/7.0.1406/os/x86_64/
 repo --name=centos-updates --mirrorlist=http://mirrorlist.centos.org/?release=7.0.1406&arch=x86_64&repo=updates
 
 # Language and keyboard setup
-lang en_US.UTF-8
+lang es_CL.UTF-8
 keyboard us
 
 # Configure networking without IPv6, firewall off
@@ -29,8 +29,8 @@ timezone --utc Etc/UTC
 # Authentication
 rootpw --lock
 # if you want to preset the root password in a public kickstart file, use SHA512crypt e.g.
-# rootpw --iscrypted $6$9dC4m770Q1o$FCOvPxuqc1B22HM21M5WuUfhkiQntzMuAV7MY0qfVcvhwNQ2L86PcnDWfjDd12IFxWtRiTuvO/niB0Q3Xpf2I.
-user --name=centos --password=Asdfqwerty --plaintext --gecos="CentOS User" --shell=/bin/bash --groups=user,wheel
+rootpw --iscrypted $6$9dC4m770Q1o$FCOvPxuqc1B22HM21M5WuUfhkiQntzMuAV7MY0qfVcvhwNQ2L86PcnDWfjDd12IFxWtRiTuvO/niB0Q3Xpf2I.
+# user --name=centos --password=Asdfqwerty --plaintext --gecos="CentOS User" --shell=/bin/bash --groups=user,wheel
 # if you want to preset the user password in a public kickstart file, use SHA512crypt e.g.
 # user --name=centos --password=$6$9dC4m770Q1o$FCOvPxuqc1B22HM21M5WuUfhkiQntzMuAV7MY0qfVcvhwNQ2L86PcnDWfjDd12IFxWtRiTuvO/niB0Q3Xpf2I. --iscrypted --gecos="CentOS User" --shell=/bin/bash --groups=user,wheel
 authconfig --enableshadow --passalgo=sha512
@@ -47,7 +47,7 @@ eula --agreed
 zerombr
 clearpart --all --drives=xvda
 part /boot --fstype=ext3 --size=500 --asprimary
-part / --fstype=ext4 --grow --size=1024 --asprimary
+part / --fstype=ext4 --grow --size=10240 --asprimary
 bootloader --timeout=5 --driveorder=xvda --append="console=hvc0"
 
 # Shutdown when the kickstart is done
