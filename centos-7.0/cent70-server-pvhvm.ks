@@ -27,10 +27,10 @@ firewall --enabled --ssh
 timezone --utc Etc/UTC
 
 # Authentication
-rootpw --lock
+#rootpw --lock
 # if you want to preset the root password in a public kickstart file, use SHA512crypt e.g.
-# rootpw --iscrypted $6$9dC4m770Q1o$FCOvPxuqc1B22HM21M5WuUfhkiQntzMuAV7MY0qfVcvhwNQ2L86PcnDWfjDd12IFxWtRiTuvO/niB0Q3Xpf2I.
-user --name=centos --password=Asdfqwerty --plaintext --gecos="CentOS User" --shell=/bin/bash --groups=user,wheel
+rootpw --password=Asdfqwerty
+#user --name=centos --password=Asdfqwerty --plaintext --gecos="CentOS User" --shell=/bin/bash --groups=user,wheel
 # if you want to preset the user password in a public kickstart file, use SHA512crypt e.g.
 # user --name=centos --password=$6$9dC4m770Q1o$FCOvPxuqc1B22HM21M5WuUfhkiQntzMuAV7MY0qfVcvhwNQ2L86PcnDWfjDd12IFxWtRiTuvO/niB0Q3Xpf2I. --iscrypted --gecos="CentOS User" --shell=/bin/bash --groups=user,wheel
 authconfig --enableshadow --passalgo=sha512
@@ -47,7 +47,7 @@ eula --agreed
 zerombr
 clearpart --all
 part /boot --fstype=ext3 --size=256 --asprimary
-part / --fstype=ext4 --grow --size=1024 --asprimary
+part / --fstype=ext4 --grow --size=10240 --asprimary
 bootloader --timeout=5 --location=mbr
 
 # Shutdown when the kickstart is done
