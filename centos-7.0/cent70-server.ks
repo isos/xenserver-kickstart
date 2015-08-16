@@ -24,7 +24,7 @@ network --bootproto=dhcp --device=eth0 --onboot=on
 firewall --enabled --ssh
 
 # Set timezone
-timezone --utc Etc/UTC
+timezone --utc America/Santiago
 
 # Authentication
 #rootpw --lock
