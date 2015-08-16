@@ -29,7 +29,8 @@ timezone --utc Etc/UTC
 # Authentication
 #rootpw --lock
 # if you want to preset the root password in a public kickstart file, use SHA512crypt e.g.
-rootpw --password=Asdfqwerty
+#rootpw --password=Asdfqwerty
+rootpw --iscrypted $6$9dC4m770Q1o$FCOvPxuqc1B22HM21M5WuUfhkiQntzMuAV7MY0qfVcvhwNQ2L86PcnDWfjDd12IFxWtRiTuvO/niB0Q3Xpf2I.
 #user --name=centos --password=Asdfqwerty --plaintext --gecos="CentOS User" --shell=/bin/bash --groups=user,wheel
 # if you want to preset the user password in a public kickstart file, use SHA512crypt e.g.
 # user --name=centos --password=$6$9dC4m770Q1o$FCOvPxuqc1B22HM21M5WuUfhkiQntzMuAV7MY0qfVcvhwNQ2L86PcnDWfjDd12IFxWtRiTuvO/niB0Q3Xpf2I. --iscrypted --gecos="CentOS User" --shell=/bin/bash --groups=user,wheel
